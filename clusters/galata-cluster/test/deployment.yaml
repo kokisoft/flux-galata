@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: testflux
+spec:
+ replicas: 1
+ selector:
+  matchLabels:
+    app: testflux
+ template:
+     metadata:
+      labels:
+       app: testflux
+     spec:
+      containers:
+        - name: testflux
+          image: kokisoft/testflux:923
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Development
+            - name: enableHang
+              value: 'false'
