@@ -12,4 +12,4 @@ flux get image policy
 flux get image policy --all-namespaces
 
 
-  flux create image update testfluximageupdate   --git-repo-ref=flux-system   --git-repo-path="./clusters/my-cluster"   --checkout-branch=main   --author-name=kokisoft     --author-email=koki.soft@gmail.com    --commit-template="{{range .Updated.Images}}{{println .}}{{end}}"  --export > testfluximageupdate.yaml
+  flux create image update testfluximageupdate   --git-repo-ref=flux-system   --git-repo-path="./clusters/galata-cluster/test"   --checkout-branch=main   --author-name=kokisoft     --author-email=koki.soft@gmail.com    --commit-template="{{range .Updated.Images}}{{println .}}{{end}}"  --export > testfluximageupdate.yaml
