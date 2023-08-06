@@ -13,11 +13,11 @@ spec:
       author:
         email: koki.soft@gmail.com
         name: kokisoft
-      
+      messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
   interval: 1m0s
   sourceRef:
     kind: GitRepository
     name: flux-system
   update:
-    path: ./clusters/my-cluster
+    path: ./clusters/galata-cluster/test
     strategy: Setters
