@@ -1,0 +1,1 @@
+flux create image repository testxluximage --image docker.io/kokisoft/testflux --interval 10s --export > testfluximage.yaml
