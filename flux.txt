@@ -2,4 +2,9 @@ flux create image repository testxluximage --image docker.io/kokisoft/testflux -
 
 
 flux get image  all
+
+flux get all 
+
 flux create image policy testfluximagepolicy --image-ref testxluximage  --select-numeric=asc       --export > testfluximagepolicy.yaml
+
+flux get image policy
