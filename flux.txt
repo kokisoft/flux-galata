@@ -13,3 +13,11 @@ flux get image policy --all-namespaces
 
 
   flux create image update testfluximageupdate   --git-repo-ref=flux-system   --git-repo-path="./clusters/galata-cluster/test"   --checkout-branch=main   --author-name=kokisoft     --author-email=koki.soft@gmail.com    --commit-template="{{range .Updated.Images}}{{println .}}{{end}}"  --export > testfluximageupdate.yaml
+
+
+deploy key add to git
+
+
+  flux create secret git testfluxsecret    --url=ssh://git@github.com/kokisoft/flux-galata  --ssh-key-algorithm=ecdsa  --ssh-ecdsa-curve=p521
+
+  flux reconcile image update testfluximageupdate
