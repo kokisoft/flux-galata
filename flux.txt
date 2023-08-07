@@ -1,3 +1,13 @@
+
+git token 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
+
+update the github token kubectl -n flux-system delete secret flux-system
+
+flux bootstrap github --owner=kokisoft --repository=flux-galata --path=clusters/galata-cluster --read-write-key=true --components-extra="image-reflector-controller,image-automation-controller"
+
+
+
+
 flux create image repository testxluximage --image docker.io/kokisoft/testflux --interval 10s --export > testfluximage.yaml
 
 
@@ -21,3 +31,5 @@ deploy key add to git
   flux create secret git testfluxsecret    --url=ssh://git@github.com/kokisoft/flux-galata  --ssh-key-algorithm=ecdsa  --ssh-ecdsa-curve=p521
 
   flux reconcile image update testfluximageupdate
+
+  flux create secret git flux-system
