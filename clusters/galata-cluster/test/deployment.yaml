@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: testflux
-          image: docker.io/kokisoft/testflux:928 # {"$imagepolicy": "flux-system:testfluximagepolicy"}
+          image: docker.io/kokisoft/testflux:929 # {"$imagepolicy": "flux-system:testfluximagepolicy"}
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
