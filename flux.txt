@@ -1,5 +1,5 @@
 
-git token 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
+git token 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
 
 update the github token kubectl -n flux-system delete secret flux-system
 
