@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: testflux
- namespace: test
+  name: testflux
+  namespace: test
 spec:
- replicas: 1
- selector:
-  matchLabels:
-    app: testflux
- template:
-     metadata:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: testflux
+  template:
+    metadata:
       labels:
-       app: testflux
-     spec:
+        app: testflux
+    spec:
       containers:
         - name: testflux
-          image: kokisoft/testflux:923  # {"$imagepolicy": "flux-system:testfluximagepolicy"}
+          image: docker.io/kokisoft/testflux:924 # {"$imagepolicy": "flux-system:testfluximagepolicy"}
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
