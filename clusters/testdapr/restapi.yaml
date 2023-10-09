@@ -55,7 +55,7 @@ spec:
             protocol: TCP
         envFrom:
           - configMapRef:
-              name: apigateway-cm
+              name: restapi-cm
 
 ---
 
