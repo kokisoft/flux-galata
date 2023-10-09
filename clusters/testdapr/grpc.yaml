@@ -1,0 +1,89 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: grpcapi-cm
+  namespace: testdapr
+  labels:
+    app: testdapr
+    service: grpcapi
+data:
+  ASPNETCORE_ENVIRONMENT: Development
+  ASPNETCORE_URLS: http://0.0.0.0:80
+
+---
+
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: grpcapi
+  namespace: testdapr
+  labels:
+    app: testdapr
+    service: grpcapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: grpcapi
+  template:
+    metadata:
+      labels:
+         app: testdapr
+         service: grpcapi
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "grpcapi"
+        dapr.io/app-port: "80"
+        dapr.io/config: "dapr-config"
+    spec:
+      containers:
+      - name: grpcapi
+        image: kokisoft/rincloud-grpcapi:946
+        imagePullPolicy: IfNotPresent
+        ports:
+          - name: http
+            containerPort: 80
+            protocol: TCP
+          - name: admin
+            containerPort: 8001
+            protocol: TCP
+          - name: daprhttp
+            containerPort: 3500
+            protocol: TCP
+          - name: daprgrpc
+            containerPort: 50001
+            protocol: TCP
+        envFrom:
+          - configMapRef:
+              name: grpcapi-cm
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: grpcapi
+  namespace: testdapr
+  labels:
+    app: testdapr
+    service: grpcapi
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+      name: http
+    - port: 8001
+      targetPort: 8001
+      protocol: TCP
+      name: admin
+    - port: 3500
+      targetPort: 3500
+      protocol: TCP
+      name: daprhttp
+    - port: 50001
+      targetPort: 50001
+      protocol: TCP
+      name: daprgrpc
+  selector:
+    service: grpcapi
