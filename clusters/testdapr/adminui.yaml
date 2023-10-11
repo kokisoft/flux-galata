@@ -32,13 +32,14 @@ spec:
          service: adminui
       annotations:
         dapr.io/enabled: "true"
-        dapr.io/app-id: "adminui"
-        dapr.io/app-port: "80"
+        dapr.io/app-id: "adminui2"
+       # dapr.io/app-port: "50051"
         dapr.io/config: "dapr-config"
+        dapr.io/app-protocol: "grpc"
     spec:
       containers:
       - name: adminui
-        image: kokisoft/rincloudadminui2:947
+        image: kokisoft/rincloudadminui2:950
         imagePullPolicy: IfNotPresent
         ports:
           - name: http

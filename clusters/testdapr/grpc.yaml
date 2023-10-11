@@ -32,9 +32,10 @@ spec:
          service: grpcapi
       annotations:
         dapr.io/enabled: "true"
-        dapr.io/app-id: "grpcapi"
-        dapr.io/app-port: "80"
+        dapr.io/app-id: "rincloudadmin-grpc"
+       # dapr.io/app-port: "50061"
         dapr.io/config: "dapr-config"
+        dapr.io/app-protocol: "grpc"
     spec:
       containers:
       - name: grpcapi

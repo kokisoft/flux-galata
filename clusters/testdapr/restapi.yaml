@@ -32,9 +32,10 @@ spec:
          service: restapi
       annotations:
         dapr.io/enabled: "true"
-        dapr.io/app-id: "restapi"
-        dapr.io/app-port: "80"
+        dapr.io/app-id: "rincloudadmin-api"
+        #dapr.io/app-port: "50071"
         dapr.io/config: "dapr-config"
+        dapr.io/app-protocol: "grpc"
     spec:
       containers:
       - name: restapi
