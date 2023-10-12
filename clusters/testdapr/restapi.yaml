@@ -21,7 +21,7 @@ metadata:
     app: testdapr
     service: restapi
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       service: restapi
@@ -33,9 +33,9 @@ spec:
       annotations:
         dapr.io/enabled: "true"
         dapr.io/app-id: "rincloudadmin-api"
-        #dapr.io/app-port: "50071"
+        dapr.io/app-port: "80"
         dapr.io/config: "dapr-config"
-        dapr.io/app-protocol: "grpc"
+        dapr.io/app-protocol: "http"
     spec:
       containers:
       - name: restapi
@@ -45,15 +45,15 @@ spec:
           - name: http
             containerPort: 80
             protocol: TCP
-          - name: admin
-            containerPort: 8001
-            protocol: TCP
-          - name: daprhttp
-            containerPort: 3500
-            protocol: TCP
-          - name: daprgrpc
-            containerPort: 50001
-            protocol: TCP
+          # - name: admin
+          #   containerPort: 8003
+          #   protocol: TCP
+          # - name: daprhttp
+          #   containerPort: 3500
+          #   protocol: TCP
+          # - name: daprgrpc
+          #   containerPort: 50001
+          #   protocol: TCP
         envFrom:
           - configMapRef:
               name: restapi-cm
@@ -73,18 +73,18 @@ spec:
     - port: 80
       targetPort: 80
       protocol: TCP
-      name: http
-    - port: 8001
-      targetPort: 8001
-      protocol: TCP
-      name: admin
-    - port: 3500
-      targetPort: 3500
-      protocol: TCP
-      name: daprhttp
-    - port: 50001
-      targetPort: 50001
-      protocol: TCP
-      name: daprgrpc
+    #   name: http
+    # - port: 8003
+    #   targetPort: 8003
+    #   protocol: TCP
+    #   name: admin
+    # - port: 3500
+    #   targetPort: 3500
+    #   protocol: TCP
+    #   name: daprhttp
+    # - port: 50001
+    #   targetPort: 50001
+    #   protocol: TCP
+    #   name: daprgrpc
   selector:
     service: restapi

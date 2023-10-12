@@ -33,27 +33,27 @@ spec:
       annotations:
         dapr.io/enabled: "true"
         dapr.io/app-id: "adminui2"
-       # dapr.io/app-port: "50051"
+        dapr.io/app-port: "80"
         dapr.io/config: "dapr-config"
-        dapr.io/app-protocol: "grpc"
+        dapr.io/app-protocol: "http"
     spec:
       containers:
       - name: adminui
-        image: kokisoft/rincloudadminui2:950
+        image: kokisoft/rincloudadminui2:953
         imagePullPolicy: IfNotPresent
         ports:
           - name: http
             containerPort: 80
             protocol: TCP
-          - name: admin
-            containerPort: 8001
-            protocol: TCP
-          - name: daprhttp
-            containerPort: 3500
-            protocol: TCP
-          - name: daprgrpc
-            containerPort: 50001
-            protocol: TCP
+          # - name: admin
+          #   containerPort: 8001
+          #   protocol: TCP
+          # - name: daprhttp
+          #   containerPort: 3500
+          #   protocol: TCP
+          # - name: daprgrpc
+          #   containerPort: 50001
+          #   protocol: TCP
         envFrom:
           - configMapRef:
               name: adminui-cm
@@ -73,18 +73,18 @@ spec:
     - port: 80
       targetPort: 80
       protocol: TCP
-      name: http
-    - port: 8001
-      targetPort: 8001
-      protocol: TCP
-      name: admin
-    - port: 3500
-      targetPort: 3500
-      protocol: TCP
-      name: daprhttp
-    - port: 50001
-      targetPort: 50001
-      protocol: TCP
-      name: daprgrpc
+    #   name: http
+    # - port: 8001
+    #   targetPort: 8001
+    #   protocol: TCP
+    #   name: admin
+    # - port: 3500
+    #   targetPort: 3500
+    #   protocol: TCP
+    #   name: daprhttp
+    # - port: 50001
+    #   targetPort: 50001
+    #   protocol: TCP
+    #   name: daprgrpc
   selector:
     service: adminui
