@@ -39,7 +39,7 @@ spec:
     spec:
       containers:
       - name: grpcapi
-        image: kokisoft/rincloud-grpcapi:946
+        image: kokisoft/rincloud-grpcapi:960
         imagePullPolicy: IfNotPresent
         ports:
           - name: http
@@ -54,6 +54,16 @@ spec:
           # - name: daprgrpc
           #   containerPort: 50002
           #   protocol: TCP
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"
+        args:
+            - -cpus
+            - "2" 
         envFrom:
           - configMapRef:
               name: grpcapi-cm

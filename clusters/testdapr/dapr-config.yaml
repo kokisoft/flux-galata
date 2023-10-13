@@ -8,7 +8,7 @@ spec:
     samplingRate: "1"
     zipkin:
       endpointAddress: "http://zipkin:9411/api/v2/spans"
-    mtls:
+  mtls:
       enabled: true
       workloadCertTTL: "24h"
       allowedClockSkew: "15m"    

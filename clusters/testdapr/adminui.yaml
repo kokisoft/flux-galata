@@ -39,7 +39,7 @@ spec:
     spec:
       containers:
       - name: adminui
-        image: kokisoft/rincloudadminui2:953
+        image: kokisoft/rincloudadminui2:959
         imagePullPolicy: IfNotPresent
         ports:
           - name: http
@@ -54,6 +54,16 @@ spec:
           # - name: daprgrpc
           #   containerPort: 50001
           #   protocol: TCP
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"
+        args:
+            - -cpus
+            - "2" 
         envFrom:
           - configMapRef:
               name: adminui-cm
