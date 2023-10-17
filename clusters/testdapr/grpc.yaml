@@ -39,7 +39,7 @@ spec:
     spec:
       containers:
       - name: grpcapi
-        image: kokisoft/rincloud-grpcapi:960
+        image: kokisoft/rincloud-grpcapi:966
         imagePullPolicy: IfNotPresent
         ports:
           - name: http
