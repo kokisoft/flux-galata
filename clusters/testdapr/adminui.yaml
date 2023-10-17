@@ -39,7 +39,7 @@ spec:
     spec:
       containers:
       - name: adminui
-        image: kokisoft/rincloudadminui2:959
+        image: kokisoft/rincloudadminui2:965
         imagePullPolicy: IfNotPresent
         ports:
           - name: http
