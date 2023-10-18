@@ -35,7 +35,7 @@ spec:
         dapr.io/app-id: "rincloudadmin-api"
         dapr.io/app-port: "80"
         dapr.io/config: "dapr-config"
-        dapr.io/app-protocol: "http"
+        #dapr.io/app-protocol: "grpc"
     spec:
       containers:
       - name: restapi
@@ -45,6 +45,9 @@ spec:
           - name: http
             containerPort: 80
             protocol: TCP
+          - name: https
+            containerPort: 443
+            protocol: TCP  
           # - name: admin
           #   containerPort: 8003
           #   protocol: TCP
@@ -81,8 +84,14 @@ metadata:
 spec:
   ports:
     - port: 80
+      name: http 
       targetPort: 80
       protocol: TCP
+    - port: 443
+      name: https
+      targetPort: 443
+      protocol: TCP
+
     #   name: http
     # - port: 8003
     #   targetPort: 8003
