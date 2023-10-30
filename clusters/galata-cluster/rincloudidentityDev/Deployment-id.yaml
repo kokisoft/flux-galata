@@ -14,7 +14,7 @@ spec:
   template:
     metadata:
       labels:
-        app: id
+        app: identity
     spec:
       hostAliases:
        - ip: "192.168.10.100"
