@@ -2,14 +2,14 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: identity
-  name: identity
+    app: identityapp
+  name: identityapp
   namespace: devidentity
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: identity
+      app: identityapp
   strategy: {}
   template:
     metadata:
@@ -23,7 +23,7 @@ spec:
           - "sts.book-cloud.eu"
       containers:
       - image: kokisoft/rincloudidentity:981
-        name: identity
+        name: identityapp
         ports:
           - name: http
             containerPort: 80
