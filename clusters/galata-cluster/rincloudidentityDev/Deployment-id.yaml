@@ -9,7 +9,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: id
+      app: identity
   strategy: {}
   template:
     metadata:
