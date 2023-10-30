@@ -16,6 +16,13 @@ spec:
     metadata:
       labels:
         app: identityapp
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "sts"
+        dapr.io/app-port: "80"
+        dapr.io/config: "dapr-config"
+        dapr.io/app-protocol: "http"
+        #dapr.io/app-protocol: "grpc"  
     spec:
       hostAliases:
        - ip: "192.168.10.100"
