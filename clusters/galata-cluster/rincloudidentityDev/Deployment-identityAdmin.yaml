@@ -1,30 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: identityapp
+  name: identityadminapp
   labels:
-    app: identityapp
+    app: identityadminapp
     
   namespace: devidentity
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: identityapp
+      app: identityadminapp
   strategy: {}
   template:
     metadata:
       labels:
-        app: identityapp
+        app: identityadminapp
     spec:
       hostAliases:
        - ip: "192.168.10.100"
          hostnames:
-          - "admin.devlogin.rinsoftware.com"
-          - "devlogin.rinsoftware.com"
+          - "login.rin-cloud.eu"
+          - "sts.book-cloud.eu"
       containers:
-      - image: kokisoft/rincloudidentity:982
-        name: identityapp
+      - image: kokisoft/rincloudidentityadmin:983
+        name: identityadminapp
         ports:
           - name: http
             containerPort: 80
