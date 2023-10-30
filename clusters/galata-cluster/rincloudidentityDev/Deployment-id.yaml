@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: identity
+  name: identity
+  namespace: devidentity
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: id
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: id
+    spec:
+      hostAliases:
+       - ip: "192.168.10.100"
+         hostnames:
+          - "login.rin-cloud.eu"
+          - "sts.book-cloud.eu"
+      containers:
+      - image: kokisoft/rincloudidentity:981
+        name: identity
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Development
+        resources:
+            requests:
+              memory: "512Mi"
+              cpu: "250m"
+            limits:
+              memory: "1024Mi"
+              cpu: "500m"
+        args:
+              - -cpus
+              - "2" 
