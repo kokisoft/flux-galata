@@ -1,9 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: identityapp
   labels:
     app: identityapp
-    name: identityapp
+    
   namespace: devidentity
 spec:
   replicas: 1
