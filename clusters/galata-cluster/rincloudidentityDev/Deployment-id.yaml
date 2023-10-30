@@ -22,7 +22,7 @@ spec:
           - "login.rin-cloud.eu"
           - "sts.book-cloud.eu"
       containers:
-      - image: kokisoft/rincloudidentity:981
+      - image: kokisoft/rincloudidentity:982
         name: identity
         ports:
           - name: http
