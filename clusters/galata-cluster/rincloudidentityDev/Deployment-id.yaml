@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: identityapp
-  name: identityapp
+    name: identityapp
   namespace: devidentity
 spec:
   replicas: 1
