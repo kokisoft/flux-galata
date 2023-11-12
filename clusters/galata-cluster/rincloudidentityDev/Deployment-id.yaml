@@ -30,7 +30,7 @@ spec:
           - "admin.devlogin.rinsoftware.com"
           - "devlogin.rinsoftware.com"
       containers:
-      - image: kokisoft/rincloudidentity:1000
+      - image: kokisoft/rincloudidentity:1001
         name: identityapp
         ports:
           - name: http
