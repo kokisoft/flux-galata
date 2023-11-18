@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demowtapp
+  labels:
+    app: identityapp
+    
+  namespace: demowt
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demowtapp
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: demowtapp
+    spec:
+      containers:
+      - image: kokisoft/workingtimeweb:1004
+        name: demowtapp
+        ports:
+          - name: http
+            containerPort: 80
+            protocol: TCP
+          - name: https
+            containerPort: 443
+            protocol: TCP
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: rindev
+        resources:
+            requests:
+              memory: "512Mi"
+              cpu: "250m"
+            limits:
+              memory: "1024Mi"
+              cpu: "500m"
+        args:
+              - -cpus
+              - "2" 
