@@ -1,0 +1,47 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: id-redirect-scheme
+  namespace: rinidentity
+spec:
+  redirectScheme:
+    scheme: https
+    permanent: true
+    port: "443"
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: id-sts
+  namespace: rinidentity
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`login.rin-cloud.eu`)
+      kind: Rule
+      middlewares:
+        - name: id-redirect-scheme 
+      services:
+        - name: id-sts
+          port: 80
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: id-ststls
+  namespace: rinidentity
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`login.rin-cloud.eu`)
+      kind: Rule
+      services:
+        - name: id-sts
+          port: 80
+          
+  tls:
+    certResolver: letsencrypt     
