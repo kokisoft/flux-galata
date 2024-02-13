@@ -19,7 +19,7 @@ spec:
       annotations:
         dapr.io/enabled: "true"
         dapr.io/app-id: "stsadmin"
-        dapr.io/app-port: "80"
+        dapr.io/app-port: "8080"
         dapr.io/config: "dapr-config"
         dapr.io/app-protocol: "http"
         #dapr.io/app-protocol: "grpc"    
@@ -30,11 +30,11 @@ spec:
           - "admin.devlogin.rinsoftware.com"
           - "devlogin.rinsoftware.com"
       containers:
-      - image: kokisoft/rincloudidentityadmin:1002
+      - image: kokisoft/rincloudidentityadmin:1045
         name: identityadminapp
         ports:
           - name: http
-            containerPort: 80
+            containerPort: 8080
             protocol: TCP
           - name: https
             containerPort: 443
