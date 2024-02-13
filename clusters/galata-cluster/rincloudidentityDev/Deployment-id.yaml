@@ -27,7 +27,7 @@ spec:
       hostAliases:
        - ip: "192.168.10.100"
          hostnames:
-          - "admin.devlogin.rinsoftware.com"
+          - "admin-devlogin.rinsoftware.com"
           - "devlogin.rinsoftware.com"
       containers:
       - image: kokisoft/rincloudidentity:1044
