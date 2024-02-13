@@ -19,7 +19,7 @@ spec:
       annotations:
         dapr.io/enabled: "true"
         dapr.io/app-id: "sts"
-        dapr.io/app-port: "80"
+        dapr.io/app-port: "8080"
         dapr.io/config: "dapr-config"
         dapr.io/app-protocol: "http"
         #dapr.io/app-protocol: "grpc"  
@@ -35,7 +35,6 @@ spec:
         ports:
           - name: http
             containerPort: 8080
-            
             protocol: TCP
           - name: https
             containerPort: 443
