@@ -8,8 +8,8 @@ metadata:
   namespace: argymmanager
 spec:
   ports:
-  - name: custom
-    port: 8080
+  - name: http
+    port: 80
     targetPort: 8080
 
   selector:
