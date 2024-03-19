@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: armanager
+  labels:
+    app: armanagerapp
+    
+  namespace: argymmanager
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: armanager
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: armanager
+    spec:
+      containers:
+      - image: kokisoft/armanagerdashboard:1062
+        name: armanager
+        ports:
+          - name: http
+            containerPort: 8080
+            protocol: TCP
+          - name: https
+            containerPort: 443
+            protocol: TCP
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Production
+        resources:
+            requests:
+              memory: "512Mi"
+              cpu: "250m"
+            limits:
+              memory: "1024Mi"
+              cpu: "500m"
+        args:
+              - -cpus
+              - "2" 
