@@ -8,11 +8,9 @@ metadata:
   namespace: argymmanager
 spec:
   ports:
-  - name: http
-    port: 80
+  - name: custom
+    port: 8080
     targetPort: 8080
-  - name: https
-    port: 443
-    targetPort: 443
+
   selector:
     app: armanagerapp
