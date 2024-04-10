@@ -18,7 +18,7 @@ spec:
         app: demogymlocker
     spec:
       containers:
-      - image: kokisoft/gym6locker:1128
+      - image: kokisoft/gym6locker:1129
         name: demogymlocker
         ports:
           - name: http
