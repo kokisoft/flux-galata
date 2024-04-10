@@ -27,6 +27,9 @@ spec:
         env:
         - name: ASPNETCORE_ENVIRONMENT
           value: ev
+        - name: enableHang
+          value: "false"
+
         resources:
             requests:
               memory: "512Mi"

@@ -4,7 +4,6 @@ metadata:
   name: demogymfront
   labels:
     app: demogymfront
-    
   namespace: demogym
 spec:
   replicas: 1
@@ -24,13 +23,12 @@ spec:
           - name: http
             containerPort: 80
             protocol: TCP
-
         resources:
             requests:
-              memory: "512Mi"
+              memory: "256Mi"
               cpu: "250m"
             limits:
-              memory: "1024Mi"
+              memory: "512Mi"
               cpu: "500m"
         args:
               - -cpus
