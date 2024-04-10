@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: demogymfront
   labels:
-    app: demogymapi
+    app: demogymfront
     
   namespace: demogym
 spec:
