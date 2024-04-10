@@ -17,7 +17,7 @@ spec:
         app: demogymfront
     spec:
       containers:
-      - image: kokisoft/gym6web:1123
+      - image: kokisoft/gym6web:1130
         name: demogymfront
         ports:
           - name: http
