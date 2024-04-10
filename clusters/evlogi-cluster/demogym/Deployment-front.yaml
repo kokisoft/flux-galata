@@ -34,4 +34,4 @@ spec:
               cpu: "500m"
         args:
               - -cpus
-              - "1" 
+              - "2" 
