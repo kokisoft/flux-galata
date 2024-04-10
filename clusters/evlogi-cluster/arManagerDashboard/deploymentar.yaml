@@ -18,7 +18,7 @@ spec:
         app: armanager
     spec:
       containers:
-      - image: kokisoft/armanagerdashboard:1135
+      - image: kokisoft/armanagerdashboard:1136
         name: armanager
         ports:
           - name: http
