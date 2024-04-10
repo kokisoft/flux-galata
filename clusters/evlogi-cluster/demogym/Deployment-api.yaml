@@ -22,7 +22,7 @@ spec:
         name: demogymapi
         ports:
           - name: http
-            containerPort: 8080
+            containerPort: 5200
             protocol: TCP
         env:
         - name: ASPNETCORE_ENVIRONMENT
