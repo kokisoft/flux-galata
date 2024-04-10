@@ -24,9 +24,7 @@ spec:
           - name: http
             containerPort: 80
             protocol: TCP
-        env:
-        - name: ASPNETCORE_ENVIRONMENT
-          value: ev
+
         resources:
             requests:
               memory: "512Mi"
@@ -36,4 +34,4 @@ spec:
               cpu: "500m"
         args:
               - -cpus
-              - "2" 
+              - "1" 
