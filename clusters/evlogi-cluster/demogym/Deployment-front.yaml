@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: demogymfront
   labels:
-    app: demogymfront
+    app: demogymapi
     
   namespace: demogym
 spec:
@@ -24,7 +24,9 @@ spec:
           - name: http
             containerPort: 80
             protocol: TCP
-      
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: ev
         resources:
             requests:
               memory: "512Mi"
