@@ -18,7 +18,7 @@ spec:
         app: demowtapp
     spec:
       containers:
-      - image: kokisoft/newtimwtweb:1143
+      - image: kokisoft/newtimwtweb:1144
         name: demowtapp
         ports:
           - name: http
