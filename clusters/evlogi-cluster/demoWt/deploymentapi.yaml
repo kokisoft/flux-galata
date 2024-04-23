@@ -22,7 +22,7 @@ spec:
         name: demowtappapi
         ports:
           - name: http
-            containerPort: 8080
+            containerPort: 5000
             protocol: TCP
         env:
         - name: ASPNETCORE_ENVIRONMENT
