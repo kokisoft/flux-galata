@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tuvarna
+  labels:
+    app: tuvarnaapp
+    
+  namespace: tuvarna
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tuvarna
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: tuvarna
+    spec:
+      containers:
+      - image: kokisoft/tuvarna:1200
+        name: tuvarna
+        ports:
+          - name: http
+            containerPort: 8080
+            protocol: TCP
+          - name: https
+            containerPort: 443
+            protocol: TCP
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Production
+        resources:
+            requests:
+              memory: "512Mi"
+              cpu: "250m"
+            limits:
+              memory: "1024Mi"
+              cpu: "500m"
+        args:
+              - -cpus
+              - "2" 
