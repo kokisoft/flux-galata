@@ -18,7 +18,7 @@ spec:
         app: tuvarna
     spec:
       containers:
-      - image: kokisoft/tuvarna:1237
+      - image: kokisoft/tuvarna:1238
         name: tuvarna
         ports:
           - name: http
