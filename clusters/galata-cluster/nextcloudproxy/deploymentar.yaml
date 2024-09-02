@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nextcloudproxy
+  labels:
+    app: nextcloudproxyapp
+    
+  namespace: nextcloudproxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nextcloudproxy
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: nextcloudproxy
+    spec:
+      containers:
+      - image: kokisoft/nextcloudproxy:1290
+        name: nextcloudproxy
+        ports:
+          - name: http
+            containerPort: 8080
+            protocol: TCP
+          - name: https
+            containerPort: 443
+            protocol: TCP
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Production
+        resources:
+            requests:
+              memory: "512Mi"
+              cpu: "250m"
+            limits:
+              memory: "1024Mi"
+              cpu: "500m"
+        args:
+              - -cpus
+              - "2" 
