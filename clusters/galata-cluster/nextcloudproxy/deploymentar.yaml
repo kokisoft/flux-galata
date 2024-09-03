@@ -27,9 +27,7 @@ spec:
           - name: https
             containerPort: 443
             protocol: TCP
-        env:
-        - name: ASPNETCORE_ENVIRONMENT
-          value: Production
+
         resources:
             requests:
               memory: "512Mi"
