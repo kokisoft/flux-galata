@@ -18,7 +18,7 @@ spec:
         app: nextcloudproxy
     spec:
       containers:
-      - image: kokisoft/nextcloudproxy:1298
+      - image: kokisoft/nextcloudproxy:1299
         name: nextcloudproxy
         ports:
           - name: http
