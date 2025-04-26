@@ -18,19 +18,21 @@ spec:
         app: nfcmanager
     spec:
       containers:
-        - image: kokisoft/nfcmanager:18
+        - image: kokisoft/nfcmanager:20
           name: nextcloudproxy
           ports:
             - name: http
               containerPort: 3000
-              protocol: TCP
+              
           env:
-          - name: HOST
-            value: "0.0.0.0"
-          - name: PORT
-            value: "3000"
-          - name: NODE_ENV
-            value: "production"
+        - name: HOST
+          value: "0.0.0.0"
+        - name: PORT
+          value: "3000"
+        - name: NODE_ENV
+          value: "production"
+        - name: NEXT_PUBLIC_HOST
+          value: "0.0.0.0"
           resources:
             requests:
               memory: "256Mi"
