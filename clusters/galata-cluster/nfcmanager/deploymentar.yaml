@@ -18,7 +18,7 @@ spec:
         app: nfcmanager
     spec:
       containers:
-      - image: kokisoft/nfcmanager:14
+      - image: kokisoft/nfcmanager:16
         name: nextcloudproxy
         ports:
           - name: http
