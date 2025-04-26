@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: nfc-manager
-        image: kokisoft/nfcmanager:20
+        image: kokisoft/nfcmanager:22
         ports:
         - containerPort: 3000
           name: http
